@@ -2,12 +2,20 @@
 
 試したことと、そこからわかったことを残す技術ブログです。
 
-## PC で見る
+## PC でプレビューする
 
-`index.html` をブラウザーで開くと記事一覧を表示できます。記事一覧から各記事へ移動できます。
+リポジトリのフォルダーを VS Code で開き、ターミナルで次を実行します。最初の2行は初回だけ実行します。
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m mkdocs serve
+```
+
+ターミナルに表示されたアドレスをブラウザーで開きます。終了するときはターミナルで Ctrl+C を押します。
 
 ## 記事を追加する
 
-1. `posts/git-path.html` をコピーして、ファイル名と記事の内容を書き換えます。
-2. `index.html` の記事一覧に、タイトル・日付・記事へのリンクを追加します。
-3. ブラウザーで記事一覧と記事を開き、リンクを確かめます。
+1. `docs/posts` に Markdown ファイルを作ります。
+2. `docs/index.md` の記事一覧と `mkdocs.yml` の `nav` に記事を追加します。
+3. プレビューで表示を確認します。変更をコミットして `main` にプッシュすると、GitHub Actions がサイトを生成して公開します。

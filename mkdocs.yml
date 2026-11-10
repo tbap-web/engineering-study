@@ -1,0 +1,28 @@
+site_name: 工学の勉強ノート
+site_description: 試したことと、そこからわかったことを残す技術ブログ。
+site_url: https://tbap-web.github.io/engineering-study/
+use_directory_urls: false
+
+theme:
+  name: material
+  language: ja
+  font: false
+  palette:
+    primary: teal
+    accent: teal
+
+plugins:
+  - search:
+      lang:
+        - ja
+        - en
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+
+nav:
+  - 記事一覧: index.md
+  - 記事:
+      - GitHub Pages で技術ブログを公開する手順: posts/github-pages.md
+      - Windows の PowerShell で Git を使えるようにする: posts/git-path.md
