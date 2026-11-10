@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="HTML と CSS で作ったブログを GitHub Pages で公開し、記事を更新する手順。">
+  <title>GitHub Pages で技術ブログを公開する手順 | Engineering Study</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap"><a class="brand" href="../index.html">Engineering Study</a></div>
+  </header>
+  <main class="wrap">
+    <article class="post">
+      <a class="back" href="../index.html">← 記事一覧に戻る</a>
+      <header>
+        <p class="meta"><time datetime="2026-11-10">2026.11.10</time><span>公開</span></p>
+        <h1>GitHub Pages で技術ブログを公開する手順</h1>
+        <p>PC に保存していたこのブログを、GitHub Pages で誰でも読めるようにした。HTML と CSS だけで作ったサイトを、既存の公開リポジトリから配信する手順をまとめる。</p>
+      </header>
+      <h2>1. ブログのファイルを GitHub に送る</h2>
+      <p>リポジトリの一番上に <code>index.html</code> と <code>style.css</code> を置き、各記事は <code>posts</code> フォルダーに入れた。空の <code>.nojekyll</code> も置くと、GitHub Pages は Jekyll で変換せずにファイルを配信する。</p>
+      <p>クローンしたフォルダーで PowerShell を開き、公開するファイルを指定してコミットする。次はこのブログの初回の例。</p>
+      <pre><code>git add -- index.html style.css posts/git-path.html .nojekyll
+git commit -m "Create engineering study blog"
+git push -u origin main</code></pre>
+      <p>コミット時に名前とメールアドレスの設定を求められたら、Git の作成者情報を設定してからやり直す。プッシュ時に GitHub のサインイン画面が出たら、そのリポジトリに書き込めるアカウントでサインインする。</p>
+      <h2>2. 公開元に main ブランチを指定する</h2>
+      <ol>
+        <li>GitHub でリポジトリを開き、<strong>Settings</strong> → <strong>Pages</strong> に進む。</li>
+        <li><strong>Source</strong> で <strong>Deploy from a branch</strong> を選ぶ。</li>
+        <li>ブランチに <code>main</code>、フォルダーに <code>/(root)</code> を選び、<strong>Save</strong> を押す。</li>
+      </ol>
+      <p><code>/(root)</code> はリポジトリの一番上を指す。ここにある <code>index.html</code> がトップページになる。</p>
+      <h2>3. 公開ページを開いて確認する</h2>
+      <p>公開処理が終わったら、Pages の <strong>Visit site</strong> でトップページを開く。記事一覧から記事を開き、一覧へ戻れることも確認する。このブログのように URL にリポジトリ名が入る場合は、<code>posts/git-path.html</code> のような相対リンクを使うと、リポジトリ名の下にある記事へ移動できる。</p>
+      <p>変更がすぐに表示されない場合は、リポジトリの <strong>Actions</strong> タブで公開処理が進行中か、エラーが出ているかを確認する。</p>
+      <h2>記事を追加するとき</h2>
+      <p><code>posts</code> に記事ファイルを作り、<code>index.html</code> にその記事へのリンクを追加する。変更をコミットして <code>main</code> にプッシュすると、同じ URL に更新が反映される。</p>
+      <p>参考資料は <a href="https://docs.github.com/ja/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site">GitHub Docs の公開元の設定手順</a>。</p>
+    </article>
+  </main>
+  <footer class="wrap site-footer">Engineering Study</footer>
+</body>
+</html>
