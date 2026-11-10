@@ -1,0 +1,44 @@
+:root {
+  color-scheme: light;
+  --paper: #f8f7f2;
+  --ink: #202b27;
+  --muted: #4c5d55;
+  --accent: #1d5c45;
+  --rule: #cdd4ca;
+  --panel: #edf0e8;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Yu Gothic UI", "Hiragino Sans", Meiryo, system-ui, sans-serif;
+  line-height: 1.8;
+}
+
+.wrap { width: min(46rem, calc(100% - 2.5rem)); margin-inline: auto; }
+.site-header { border-bottom: 1px solid var(--rule); padding-block: 1rem; }
+.brand, .eyebrow, .meta, .site-footer {
+  font-family: ui-monospace, Consolas, "Yu Gothic UI", monospace;
+}
+.brand { color: var(--ink); font-weight: 700; text-decoration: none; }
+a { color: var(--accent); text-underline-offset: 0.2em; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.intro { padding-block: clamp(3rem, 9vw, 6rem); }
+.eyebrow, .meta { color: var(--accent); font-size: 0.875rem; }
+.meta { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; }
+h1, h2, h3 { line-height: 1.35; }
+h1 { font-size: clamp(2rem, 6vw, 3.4rem); margin-block: 0.35em; }
+.intro > p:last-child, .entry > p:last-child { color: var(--muted); }
+.entries > h2 { font-size: 1rem; margin-bottom: 0.85rem; }
+.entry { border-block: 1px solid var(--rule); padding-block: 1.1rem; }
+.entry h3 { margin-block: 0.35em; font-size: 1.35rem; }
+.post { padding-block: 2.5rem 1rem; }
+.post header { margin-block: 2.25rem; }
+.post h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); }
+.post h2 { margin-block-start: 2rem; font-size: 1.3rem; }
+code { font-family: ui-monospace, Consolas, monospace; overflow-wrap: anywhere; }
+pre { background: var(--panel); padding: 0.85rem 1rem; border-radius: 0.25rem; white-space: pre-wrap; }
+.site-footer { color: var(--muted); padding-block: 2.5rem; font-size: 0.875rem; }

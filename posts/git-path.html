@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Windows のユーザー環境変数 Path を設定し、PowerShell で Git を確認する手順。">
+  <title>Windows の PowerShell で Git を使えるようにする | Engineering Study</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap"><a class="brand" href="../index.html">Engineering Study</a></div>
+  </header>
+  <main class="wrap">
+    <article class="post">
+      <a class="back" href="../index.html">← 記事一覧に戻る</a>
+      <header>
+        <p class="meta"><time datetime="2026-11-10">2026.11.10</time><span>環境構築</span></p>
+        <h1>Windows の PowerShell で Git を使えるようにする</h1>
+        <p>PowerShell で <code>git --version</code> を実行すると、<code>CommandNotFoundException</code> が出た。</p>
+      </header>
+      <h2>Git がインストールされているか確認する</h2>
+      <pre><code>Test-Path 'C:\Program Files\Git\cmd\git.exe'</code></pre>
+      <p><code>True</code> が返った。実行ファイルをフルパスで呼び出すと Git のバージョンも表示された。</p>
+      <h2>ユーザー環境変数 Path に追加する</h2>
+      <ol>
+        <li>Windows の検索で「環境変数」を探し、「アカウントの環境変数を編集」を開く。</li>
+        <li>ユーザー環境変数の <code>Path</code> を選び、「編集」を押す。</li>
+        <li>一覧に <code>C:\Program Files\Git\cmd</code> がなければ「新規」で追加し、「OK」で保存する。</li>
+      </ol>
+      <h2>新しい PowerShell で確かめる</h2>
+      <p>開いている PowerShell を閉じて起動し直し、次のコマンドを実行する。</p>
+      <pre><code>git --version</code></pre>
+      <p>この PC では <code>git version 2.56.0.windows.4</code> と表示された。<code>Path</code> は、コマンド名だけを指定したときに Windows が実行ファイルを探すフォルダーの一覧だ。</p>
+    </article>
+  </main>
+  <footer class="wrap site-footer">Engineering Study</footer>
+</body>
+</html>
